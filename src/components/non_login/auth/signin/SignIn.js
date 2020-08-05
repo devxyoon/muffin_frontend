@@ -1,10 +1,3 @@
-/**
- * [OUTLINE]
- * 담당자 : 안지후
- * 로그인 화면 구성
- * 수정 : 조윤영 - 현재 Googlye 및 KaKao 연동 Login은 서버상 도메인에서만 가능함.
- */
-
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
