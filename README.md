@@ -27,6 +27,4 @@
 
 ### [ Website Image ]
 
-|**Intro Page**|
-|:---:|
-|<img src="https://user-images.githubusercontent.com/69235157/89461444-f39e4400-d7a6-11ea-812e-e01d492562e1.png" width="80%"></img>|
+
