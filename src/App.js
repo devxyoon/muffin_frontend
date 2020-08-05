@@ -1,7 +1,11 @@
 import React from "react";
+import NonLogin from "./components/non_login";
 
-function App() {
-  return <div className="App"></div>;
-}
-
+const App = () => {
+  return (
+    <div>
+      <NonLogin />
+    </div>
+  );
+};
 export default App;
