@@ -1,68 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## MUFFIN (Money-Pin)
 
-## Available Scripts
+<img src="https://user-images.githubusercontent.com/69235157/89404774-7eeee980-d755-11ea-8e13-f0246dc3097a.png" width="30%"></img>
 
-In the project directory, you can run:
+**비트캠프 신촌센터 제 6강의실 팀프로젝트**
 
-### `yarn start`
+개발 기간 : 2020년 07월 27일  ~ 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### [ About ]
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**텍스트마이닝 기술을 활용한 소셜 경제 미디어 플랫폼**입니다.
 
-### `yarn test`
+**1. 경제 미디어** <br>
+많은 뉴스/정보 중 주식관련 정보만 제공합니다.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**2. 핫이슈 키워드** <br>
+이슈가 되고 있는 키워드를 소개합니다.
 
-### `yarn build`
+**3. 경제 이슈에 대한 오피니언** <br>
+경제 오피니언으로 인사이트를 넓혀보세요. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**4. 나의 포트폴리오** <br>
+나의 자산 및 변동상황을 한번에 조회해보세요. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**5. 맞춤 종목 투자 추천** <br>
+투자 프로필에 따라 맞춤형 종목을 제시합니다. 
