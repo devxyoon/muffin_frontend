@@ -27,7 +27,7 @@
 
 ### [ Website Image ]
 
-|내용|
+|**Intro Page**|
 |:---:|
 |<img src="https://user-images.githubusercontent.com/69235157/89463024-424cdd80-d7a9-11ea-8672-e71442a86a27.png" width="80%"></img>|
 
