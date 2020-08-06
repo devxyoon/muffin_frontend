@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Navbar } from "./logined_navbar";
 import Menu from "./menu/Menu";
 import { OpinionList, OpinionDetail, OpinionRegister } from "./opinion";
+import { StockPage } from "./stocks";
 
 const Logined = () => {
   return (
@@ -36,6 +37,15 @@ const Logined = () => {
               render={(props) => (
                 <React.Fragment>
                   <OpinionRegister />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/stock/detail"
+              render={(props) => (
+                <React.Fragment>
+                  <StockPage />
                 </React.Fragment>
               )}
             />
