@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import kakao from "../../../../assets/signIn/kakao.png";
 import {
@@ -12,14 +12,8 @@ import {
   InputBorder,
   LoginInput,
   WarnPassword,
-  Checks,
-  Check,
   LoginLinkContainer,
   OriginLoginBtn,
-  Buttons,
-  ImgBtnContainer,
-  OtherLoginBtn,
-  Img,
 } from "./signin.style";
 
 const SignIn = () => {

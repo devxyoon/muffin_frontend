@@ -5,6 +5,7 @@ import { SignIn, SignUp } from "./auth/Auth";
 
 import { Navbar } from "./non_login_navbar";
 import { Welcome } from "./welcome";
+import { FirstInvestProfile } from "./first_invest_profile";
 
 const NonLogin = () => {
   return (
@@ -28,6 +29,15 @@ const NonLogin = () => {
               render={(props) => (
                 <React.Fragment>
                   <SignUp />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/auth/investProfile"
+              render={(props) => (
+                <React.Fragment>
+                  <FirstInvestProfile />
                 </React.Fragment>
               )}
             />

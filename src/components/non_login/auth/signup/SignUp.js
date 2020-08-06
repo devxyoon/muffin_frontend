@@ -61,7 +61,7 @@ const SignUp = () => {
           />
         </div>
 
-        <Link to="/home">
+        <Link to="/auth/InvestProfile">
           <button className="join-btn">가입하기</button>
         </Link>
       </div>
