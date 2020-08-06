@@ -1,0 +1,105 @@
+@import "../../../../style.css";
+
+canvas {
+  margin: auto;
+  width: 400px;
+  height: 200px;
+}
+
+.canvas-div {
+  width: 700px;
+  height: 250px;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+}
+
+.documentdetaildiv {
+  margin-top: 41px;
+  margin-left: 82px;
+  width: 850px;
+}
+
+.documentDetailTitle {
+  display: flex;
+  flex-direction: row;
+  height: 45px;
+  border-bottom: solid 1px var(--white-two);
+  margin-bottom: 20px;
+}
+
+.Title1 {
+  font-size: 20px;
+  width: 250px;
+}
+
+.Title2 {
+  margin-top: 9px;
+  color: var(--brownish-grey);
+  font-size: 14px;
+  margin-right: 150px;
+  width: 300px;
+}
+
+.save_button_div {
+  width: 180px;
+  margin-top: 9px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.save_button {
+  width: 82px;
+  height: 28px;
+  padding: 2px;
+  font-size: 13.5px;
+  color: var(--pinkish-grey);
+  background: none;
+  border-radius: 10px;
+  border: solid 1px var(--pinkish-grey);
+  text-emphasis: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.save_button1 {
+  width: 82px;
+  height: 27px;
+  padding: 2px;
+  font-size: 13.5px;
+  color: var(--pinkish-grey);
+  background: none;
+  border-radius: 10px;
+  border: solid 1px var(--pinkish-grey);
+  text-emphasis: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.save-div {
+  font-size: 13.5px;
+}
+
+.downloadimg {
+  border: none;
+  color: var(--pinkish-grey);
+  width: 12px;
+  height: 12px;
+}
+
+.detail_title {
+  margin-left: 9px;
+  font-size: 16px;
+  color: var(--light-black);
+  font-weight: bold;
+}
+
+.detail_content {
+  margin-left: 9px;
+  font-size: 16px;
+  color: var(--light-black);
+}
+
+.togopdf {
+  width: 700px;
+}
