@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Navbar } from "./logined_navbar";
 import Menu from "./menu/Menu";
-import { OpinionList, OpinionDetail } from "./opinion";
+import { OpinionList, OpinionDetail, OpinionRegister } from "./opinion";
+
 const Logined = () => {
   return (
     <Router>
@@ -26,6 +27,15 @@ const Logined = () => {
               render={(props) => (
                 <React.Fragment>
                   <OpinionDetail />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/opinion/write"
+              render={(props) => (
+                <React.Fragment>
+                  <OpinionRegister />
                 </React.Fragment>
               )}
             />

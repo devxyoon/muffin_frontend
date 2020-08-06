@@ -161,7 +161,7 @@ const OpinionList = () => {
               </ul>
             </li>
           </ul>
-          <Link to="" className="write_button">
+          <Link to="/opinion/write" className="write_button">
             글쓰기
           </Link>
         </div>
