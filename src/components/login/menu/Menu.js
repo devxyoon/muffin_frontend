@@ -27,7 +27,7 @@ const Menu = () => {
           뉴스
         </NavLink>
         <NavLink className="link-list" activeStyle={active} to="/portfolio">
-          보유주식
+          포트폴리오
         </NavLink>
         <NavLink className="link-list" activeStyle={active} to="/opinion">
           오피니언
