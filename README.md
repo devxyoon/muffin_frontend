@@ -38,3 +38,7 @@
 |**SignIn Page**|
 |:---:|
 |<img src="https://user-images.githubusercontent.com/69235157/89470259-5b0fc000-d7b6-11ea-9607-8d4151ab8472.png" width="80%"></img>|
+
+|**Invest Profile Setting**|
+|:---:|
+|<img src="https://user-images.githubusercontent.com/69235157/89484842-5b21b700-d7da-11ea-944a-b3ffc08c5366.png" width="80%"></img>|
