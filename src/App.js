@@ -1,10 +1,10 @@
 import React from "react";
-import NonLogin from "./components/non_login";
+import Logined from "./components/login";
 
 const App = () => {
   return (
     <div>
-      <NonLogin />
+      <Logined />
     </div>
   );
 };
