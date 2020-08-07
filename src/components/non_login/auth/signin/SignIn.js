@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import kakao from "../../../../assets/signIn/kakao.png";
 import {
   SignInContainer,
@@ -48,7 +48,9 @@ const SignIn = () => {
         </InputGroup>
 
         <LoginLinkContainer>
-          <OriginLoginBtn>로그인</OriginLoginBtn>
+          <Link to="/home">
+            <OriginLoginBtn>로그인</OriginLoginBtn>
+          </Link>
         </LoginLinkContainer>
       </LoginContainer>
     </SignInContainer>

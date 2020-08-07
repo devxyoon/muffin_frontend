@@ -1,0 +1,45 @@
+@import "../../../../style.css";
+
+.recommendation_container {
+  width: 940px;
+  height: 400px;
+}
+
+.news_title_section {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-bottom: 5px;
+}
+
+.news_title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.news_regdate {
+  position: relative;
+  left: 55%;
+  margin-top: 3px;
+  color: var(--brownish-grey);
+  font-size: 14px;
+  width: 300px;
+}
+
+.news_summary_section {
+  width: 940px;
+  margin-bottom: 7px;
+}
+
+.keyword_b {
+  font-size: 5px;
+  font-family: NanumSquareB;
+  background-color: var(--light-sage-two);
+  width: 100px;
+  height: 20px;
+  border-radius: 16.5px;
+  outline: none;
+  color: var(--brownish-grey);
+
+  font-size: 13.5px;
+}

@@ -110,9 +110,7 @@ const FirstInvestProfile = () => {
         </div>
       </div>
 
-      {/* <button className="authCheck_reAuth">인증번호 재전송</button> */}
-
-      <Link to="/auth/projectManage" style={{ textDecoration: "none" }}>
+      <Link to="/home" style={{ textDecoration: "none" }}>
         <button className="start_cameleon">Muffin 시작하기</button>
       </Link>
     </div>

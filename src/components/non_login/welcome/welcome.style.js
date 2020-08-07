@@ -4,16 +4,15 @@ import { slideInUp } from "react-animations";
 const showUpAnimation = keyframes`${slideInUp}`;
 export const TemplateBlock = styled.div`
   background: #222222;
-  position: absolute
-  top:0
-  left: 0
-  bottom: 0
-  right: 0
-  display: flex
-  flex-direction: center
-  justify-content: center
-  align-items: center
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
 `;
 export const DivideLine = styled.div`
   width: 74px;

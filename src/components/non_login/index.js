@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { SignIn, SignUp } from "./auth/Auth";
-
 import { Navbar } from "./non_login_navbar";
 import { Welcome } from "./welcome";
 import { FirstInvestProfile } from "./first_invest_profile";

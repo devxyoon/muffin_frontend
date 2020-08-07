@@ -51,6 +51,8 @@
     "react-tabs": "^3.0.0",
     "react-tag-input": "^6.4.0",
     "react-toastify": "^5.3.2",
+    "react-wordcloud": "^1.2.6",
+    "styled-components": "^5.1.1",
     "wordcloud": "^1.1.0"
   },
   "scripts": {
