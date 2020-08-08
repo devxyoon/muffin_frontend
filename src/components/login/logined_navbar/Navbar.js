@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-
-import "react-toastify/dist/ReactToastify.css";
+import { FiSearch } from "react-icons/fi";
 
 import LogoBlackIcon from "../../../assets/home/Logo_black.png";
 
@@ -33,6 +32,14 @@ const Navbar = () => {
             <img width="129px" height="40px" src={LogoBlackIcon} />
           </div>
         </Link>
+        <div className="search_section">
+          <input placeholder="검색" className="search_nav_input" />
+          <Link to="/search">
+            <button className="search_nav_button">
+              <FiSearch className="fisearch" />
+            </button>
+          </Link>
+        </div>
 
         <div className="btn-container">
           <div className="btn-p">

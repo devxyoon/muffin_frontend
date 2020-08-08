@@ -6,6 +6,7 @@ import { OpinionList, OpinionDetail, OpinionRegister } from "./opinion";
 import { StockPage } from "./stocks";
 import { NewsList, NewsDetail } from "./news";
 import { Home } from "./home";
+import { Search } from "./search";
 
 const Logined = () => {
   return (
@@ -75,6 +76,15 @@ const Logined = () => {
               render={(props) => (
                 <React.Fragment>
                   <NewsDetail />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/search"
+              render={(props) => (
+                <React.Fragment>
+                  <Search />
                 </React.Fragment>
               )}
             />

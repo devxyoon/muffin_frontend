@@ -1,5 +1,5 @@
 import React from "react";
-import { CandleChart, StockDetail } from "./index";
+import { CandleChart, StockDetail } from "../index";
 
 const StockPage = () => {
   return (
