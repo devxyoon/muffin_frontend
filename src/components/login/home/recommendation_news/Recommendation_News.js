@@ -18,7 +18,6 @@ const Recommendation_News = () => {
     {
       title: title,
       summary: summary,
-      keyword: keyword,
       regDate: regDate,
       thumbnail: thumbnail,
       address: address,
@@ -26,7 +25,6 @@ const Recommendation_News = () => {
     {
       title: title,
       summary: summary,
-      keyword: keyword,
       regDate: regDate,
       thumbnail: thumbnail,
       address: address,
@@ -34,7 +32,6 @@ const Recommendation_News = () => {
     {
       title: title,
       summary: summary,
-      keyword: keyword,
       regDate: regDate,
       thumbnail: thumbnail,
       address: address,
@@ -42,7 +39,13 @@ const Recommendation_News = () => {
     {
       title: title,
       summary: summary,
-      keyword: keyword,
+      regDate: regDate,
+      thumbnail: thumbnail,
+      address: address,
+    },
+    {
+      title: title,
+      summary: summary,
       regDate: regDate,
       thumbnail: thumbnail,
       address: address,
@@ -62,7 +65,6 @@ const Recommendation_News = () => {
                   </div>
                   <div className="news_summary_section">
                     <div>{item.summary}</div>
-                    <span className="keyword_b">{item.keyword}</span>
                   </div>
                 </div>
               </div>

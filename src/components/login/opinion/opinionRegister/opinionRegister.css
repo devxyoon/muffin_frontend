@@ -301,6 +301,7 @@
   display: block;
   max-width: 100%;
 }
+
 .ql-editor .ql-video.ql-align-center {
   margin: 0 auto;
 }
@@ -984,4 +985,12 @@
 }
 .ql-snow {
   width: 800px;
+}
+
+.documentroom_container {
+  width: 1080px;
+  height: 550px;
+  flex-direction: column;
+  margin-left: 83px;
+  margin-top: 42px;
 }

@@ -36,8 +36,13 @@
   height: 500px;
 }
 
+.stock_section {
+  width: 500px;
+  height: 500px;
+}
+
 .opinion_section {
-  width: 1000px;
+  width: 500px;
   height: 500px;
 }
 
@@ -75,7 +80,7 @@
 
 .more_3 {
   position: relative;
-  left: 80%;
+  left: 60%;
   margin-top: 9px;
   color: var(--brownish-grey);
   font-size: 14px;

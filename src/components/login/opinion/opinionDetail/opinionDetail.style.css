@@ -30,6 +30,7 @@
   margin-top: 41px;
   margin-left: 82px;
   width: 850px;
+  padding-bottom: 40px;
 }
 
 .commentdiv {
@@ -47,7 +48,7 @@
   padding-left: 0px;
   padding-right: 0px;
   padding: 8px 10px;
-  border-bottom: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
 }
 
 .comment-row-list {

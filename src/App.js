@@ -6,8 +6,7 @@ import NonLogin from "./components/non_login";
 const App = () => {
   return (
     <div>
-      <Route path="/" component={NonLogin} exact={true} />
-      <Route path="/home" component={Logined} />
+      <Logined></Logined>
     </div>
   );
 };

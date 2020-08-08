@@ -47,23 +47,6 @@ class OpinionDetail extends Component {
             분석입니다.
           </div>
         </div>
-        <div className="keyword">
-          <span className="btn-p">
-            <button className="nav-btn">#삼성카드</button>
-          </span>
-          <span className="btn-p">
-            <button className="nav-btn">#토스</button>
-          </span>
-          <span className="btn-p">
-            <button className="nav-btn">#카카오</button>
-          </span>
-          <span className="btn-p">
-            <button className="nav-btn">#한국은행</button>
-          </span>
-          <span className="btn-p">
-            <button className="nav-btn">#카카오은행</button>
-          </span>
-        </div>
         <ul className="commentdiv">
           <li className="comment-li">
             <ul className="comment-row-list">

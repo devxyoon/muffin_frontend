@@ -24,7 +24,10 @@ const Menu = () => {
         <NavLink className="link-list" activeStyle={active} to="/news">
           뉴스
         </NavLink>
-        <NavLink className="link-list" activeStyle={active} to="/stock/detail">
+        <NavLink className="link-list" activeStyle={active} to="/invest">
+          투자
+        </NavLink>
+        <NavLink className="link-list" activeStyle={active} to="/portfolio">
           포트폴리오
         </NavLink>
         <NavLink className="link-list" activeStyle={active} to="/opinion">

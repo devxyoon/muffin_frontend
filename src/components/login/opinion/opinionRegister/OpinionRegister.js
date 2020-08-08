@@ -39,8 +39,8 @@ const OpinionRegister = () => {
   ];
 
   return (
-    <>
-      <form method="POST">
+    <div className="documentroom_container">
+      <form>
         <input
           className="form-input input_title"
           placeholder="제목을 입력하세요"
@@ -51,11 +51,6 @@ const OpinionRegister = () => {
             <ReactQuill theme="snow" placeholder="내용을 입력하세요" />
           </div>
         </div>
-        <input
-          className={"form-input"}
-          placeholder={"#키워드 입력"}
-          type="text"
-        />
         <div className={"buttons"}>
           <button className="btn btn-default bg-transparent hover:bg-blue-50 text-blue-500 hover:text-blue-600 btn-rounded btn-raised">
             <Link to="/opinion">취소하기</Link>
@@ -65,7 +60,7 @@ const OpinionRegister = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

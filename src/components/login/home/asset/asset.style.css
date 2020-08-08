@@ -1,1 +1,39 @@
 @import "../../../../style.css";
+
+.asset_title_section {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-bottom: 5px;
+}
+
+.my_asset_title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.today {
+  position: relative;
+  left: 65%;
+  margin-top: 3px;
+  color: var(--brownish-grey);
+  font-size: 14px;
+  width: 300px;
+}
+
+.my_money {
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  width: 475px;
+  border-bottom: solid 1px var(--white-two);
+}
+
+.won {
+  padding-right: 5px;
+}
+
+.money {
+  margin-bottom: 5px;
+}

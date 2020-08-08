@@ -30,16 +30,3 @@
   width: 940px;
   margin-bottom: 7px;
 }
-
-.keyword_b {
-  font-size: 5px;
-  font-family: NanumSquareB;
-  background-color: var(--light-sage-two);
-  width: 100px;
-  height: 20px;
-  border-radius: 16.5px;
-  outline: none;
-  color: var(--brownish-grey);
-
-  font-size: 13.5px;
-}

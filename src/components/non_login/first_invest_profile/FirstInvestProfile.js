@@ -73,43 +73,6 @@ const FirstInvestProfile = () => {
           </span>
         </div>
       </div>
-      <div className="authCheck_texts_div">
-        <div className="invest_texts">관심사를 선택해주세요.</div>
-        <div className="authCheck_texts">(중복선택 가능)</div>
-        <div className="authCheck_num_div">
-          <span className="auth_container">
-            <input type="checkbox" value="0" name="interest" />
-            <span className="auth_span"> </span>
-            <span>IT</span>
-          </span>
-          <span className="auth_container">
-            <input type="checkbox" value="1" name="interest" />
-            <span className="auth_span"> </span>
-            <span>금융, 투자</span>
-          </span>
-          <span className="auth_container">
-            <input type="checkbox" value="1" name="invest_character" />
-            <span className="auth_span"> </span>
-            <span>헬스케어</span>
-          </span>
-          <span className="auth_container">
-            <input type="checkbox" value="1" name="invest_character" />
-            <span className="auth_span"> </span>
-            <span>부동산</span>
-          </span>
-          <span className="auth_container">
-            <input type="checkbox" value="1" name="invest_character" />
-            <span className="auth_span"> </span>
-            <span>과학</span>
-          </span>
-          <span className="auth_container">
-            <input type="checkbox" value="1" name="invest_character" />
-            <span className="auth_span"> </span>
-            <span>식음료</span>
-          </span>
-        </div>
-      </div>
-
       <Link to="/home" style={{ textDecoration: "none" }}>
         <button className="start_cameleon">Muffin 시작하기</button>
       </Link>
