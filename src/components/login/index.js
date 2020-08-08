@@ -4,7 +4,7 @@ import { Navbar } from "./logined_navbar";
 import Menu from "./menu/Menu";
 import { OpinionList, OpinionDetail, OpinionRegister } from "./opinion";
 import { StockPage } from "./stocks";
-import { NewsList } from "./news";
+import { NewsList, NewsDetail } from "./news";
 import { Home } from "./home";
 
 const Logined = () => {
@@ -66,6 +66,15 @@ const Logined = () => {
               render={(props) => (
                 <React.Fragment>
                   <NewsList />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/news/detail"
+              render={(props) => (
+                <React.Fragment>
+                  <NewsDetail />
                 </React.Fragment>
               )}
             />

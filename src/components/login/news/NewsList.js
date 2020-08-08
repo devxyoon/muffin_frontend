@@ -104,7 +104,10 @@ const NewsList = () => {
                     />
                   </li>
                   <li>
-                    <div className="news_title_div">{item.title}</div>
+                    <Link to="/news/detail">
+                      <div className="news_title_div">{item.title}</div>
+                    </Link>
+
                     <div className="news_summary_div">{item.summary}</div>
                   </li>
                   <li className="post-row-list-item4">2020-08-08</li>
