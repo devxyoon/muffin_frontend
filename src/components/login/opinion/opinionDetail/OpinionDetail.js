@@ -13,7 +13,7 @@ class OpinionDetail extends Component {
         </div>
         <div className="authority">작성자 : Vintage</div>
         <div className="contentdetaildiv">
-          <div className="detail_content">
+          <div className="detail_content_01">
             최근 미국 주식 시장 내 핫한 스팩 (SPAC) 관련 기업 후보 중
             개인적으로도 투자 관심이 집중되는 2개의 기업에 대한 지난 주말 나름의
             기업 탐구의 시간을 가졌습니다. 이번 분석글에서는 미 희토류 기업, 'MP
@@ -23,15 +23,15 @@ class OpinionDetail extends Component {
           <img
             src="https://cdn.snek.ai/article/2020/07/4fomontznxp4xv2j30t2n8uj1d3avkolqiqnlz9duyjfkj33.png"
             width="50%"
-            className="detail_content"
+            className="detail_content_01"
           />
-          <div className="detail_content">
+          <div className="detail_content_01">
             이번 분석글 관련하여 도움이 될 수 있는 SNEK을 통해 앞서 공유한 스팩
             관련 종합 분석글과 지난 2020년 7월 MP 머티리얼스와 포트리스 기업 간
             스팩 거래 관련 투자 설명회 자료 원문 링크를 아래와 같이
             공유드립니다.
           </div>
-          <div className="detail_content">
+          <div className="detail_content_01">
             중국을 제외한 북미 희토류 업계 장악을 위한 치열한 경합이 예상되는
             주요 라이벌 기업과의 비교 분석을 다룬 슬라이드입니다. MP
             머티리얼스의 넘사벽 경쟁력을 투자자들에게 어필하는 부분이라고 할 수

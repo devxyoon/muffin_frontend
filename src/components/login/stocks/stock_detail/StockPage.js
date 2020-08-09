@@ -4,7 +4,7 @@ import { CandleChart, StockDetail } from "../index";
 const StockPage = () => {
   return (
     <>
-      <div>
+      <div style={{ width: "1100px" }}>
         <StockDetail />
         <div>
           <CandleChart />

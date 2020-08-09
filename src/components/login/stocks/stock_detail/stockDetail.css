@@ -33,6 +33,10 @@
   background-color: #2196f3;
 }
 
+.btn-red {
+  background-color: #f44336;
+}
+
 .stock_name {
   font-size: 18px;
   font-weight: bold;
@@ -49,4 +53,13 @@
 .line_setting_2 {
   position: relative;
   top: 15px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.plus_minus_btn {
+  background-color: white;
+  color: #2196f3;
 }

@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Navbar } from "./logined_navbar";
 import Menu from "./menu/Menu";
 import { OpinionList, OpinionDetail, OpinionRegister } from "./opinion";
-import { StockPage } from "./stocks";
+import { StockPage, StockList } from "./stocks";
 import { NewsList, NewsDetail } from "./news";
 import { Home } from "./home";
 import { Search } from "./search";
+import { MyPage } from "./my_page";
+import { PortfolioPage } from "./portfolio";
 
 const Logined = () => {
   return (
@@ -85,6 +87,33 @@ const Logined = () => {
               render={(props) => (
                 <React.Fragment>
                   <Search />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/mypage"
+              render={(props) => (
+                <React.Fragment>
+                  <MyPage />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/stocklist"
+              render={(props) => (
+                <React.Fragment>
+                  <StockList />
+                </React.Fragment>
+              )}
+            />
+            <Route
+              exact
+              path="/portfolio"
+              render={(props) => (
+                <React.Fragment>
+                  <PortfolioPage />
                 </React.Fragment>
               )}
             />

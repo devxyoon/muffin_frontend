@@ -43,7 +43,7 @@ const Navbar = () => {
 
         <div className="btn-container">
           <div className="btn-p">
-            <Link to="/auth/signIn">
+            <Link to="/mypage">
               <button className="nav-btn">마이페이지</button>
             </Link>
           </div>

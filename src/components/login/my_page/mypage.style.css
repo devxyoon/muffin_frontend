@@ -1,0 +1,7 @@
+.documentroom_container {
+  width: 1080px;
+  height: 1000px;
+  flex-direction: column;
+  margin-left: 83px;
+  margin-top: 42px;
+}
