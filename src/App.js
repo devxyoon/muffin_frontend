@@ -6,7 +6,7 @@ import NonLogin from "./components/non_login";
 const App = () => {
   return (
     <div>
-      <NonLogin></NonLogin>
+      <Logined></Logined>
     </div>
   );
 };
