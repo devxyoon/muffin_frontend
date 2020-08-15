@@ -8,7 +8,7 @@ const SignUp = () => {
   const url = "http://localhost:8080/users";
 
   var emailIdJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-  var passwordJ = /^[A-Za-z0-9]{4,12}$/;
+  var passwordJ = /^[A-Za-z0-9]{8,30}$/;
   var nameJ = /^[가-힣]{2,6}$/;
 
   const [name, setName] = useState("");
@@ -66,9 +66,7 @@ const SignUp = () => {
       console.log(passwordJ.test(password));
       setCheckPassword("");
     } else {
-      setCheckPassword(
-        "영문 대소문자, 숫자로 이뤄진 4 ~ 12자리의 비밀번호를 설정해주세요."
-      );
+      setCheckPassword("영문 및 숫자를 포함하여 8자 이상으로 입력하세요.");
     }
   };
 
@@ -118,7 +116,7 @@ const SignUp = () => {
                   type="text"
                   name="name"
                   className="login-input"
-                  placeholder="이름을 입력하세요"
+                  placeholder="이름을 입력하세요."
                   onChange={onChangeName}
                   onBlur={onBlurName}
                 />
@@ -146,7 +144,7 @@ const SignUp = () => {
                   type="text"
                   name="emailId"
                   className="login-input"
-                  placeholder="이메일 형태의 아이디를 입력하세요"
+                  placeholder="이메일 형태의 아이디를 입력하세요."
                   onChange={onChangeEmailId}
                   onBlur={onBlurEmail}
                 />
@@ -173,7 +171,7 @@ const SignUp = () => {
                   type="text"
                   name="nickname"
                   className="login-input"
-                  placeholder="다른 사용자에게 보일 닉네임을 입력하세요"
+                  placeholder="다른 사용자에게 보일 닉네임을 입력하세요."
                   onChange={onChangeNickname}
                 />
               </div>
@@ -187,7 +185,7 @@ const SignUp = () => {
                   type="password"
                   name="password"
                   className="login-input"
-                  placeholder="영문 및 숫자를 포함하여 8자 이상으로 입력하세요"
+                  placeholder="영문 및 숫자를 포함하여 8자 이상으로 입력하세요."
                   onChange={onChangePassword}
                   onBlur={onBlurPassword}
                 />
