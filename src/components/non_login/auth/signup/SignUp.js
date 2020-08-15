@@ -1,9 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signup.style.css";
-import { Link } from "react-router-dom";
 import Navbar from "../../non_login_navbar/Navbar";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
+  const url = "http://localhost:8080/users/";
+
+  var empJ = /\s/g;
+  var emailIdJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  var passwordJ = /^[A-Za-z0-9]{4,12}$/;
+  var nameJ = /^[가-힣]{2,6}$/;
+
+  const [name, setName] = useState("");
+  const [emailId, setEmailId] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkName, setCheckName] = useState("");
+  const [checkPassword, setCheckPassword] = useState("");
+  const [checkId, setCheckId] = useState("");
+
+  const onChangeName = (e) => setName(e.target.value);
+  const onChangeEmailId = (e) => setEmailId(e.target.value);
+  const onChangeNickname = (e) => setNickname(e.target.value);
+  const onChangePassword = (e) => setPassword(e.target.value);
+
+  const onBlurName = (e) => {
+    e.preventDefault();
+    console.log(name);
+    if (nameJ.test(name)) {
+      console.log(nameJ.test(name));
+      setCheckName("");
+    } else {
+      setCheckName("이름을 확인해주세요.");
+    }
+  };
+
+  const onBlurEmail = (e) => {
+    e.preventDefault();
+    console.log(emailId);
+
+    if (emailIdJ.test(emailId)) {
+      axios
+        .get(url + `idCheck/${emailId}`)
+        .then((respose) => {
+          console.log(respose.data);
+
+          if (respose.data) {
+            setCheckId("");
+          } else {
+            setCheckId("");
+          }
+        })
+        .catch((error) => {
+          console.log("실패");
+        });
+    } else {
+      setCheckId("이메일을 확인해주세요.");
+    }
+  };
+
+  const onBlurPassword = (e) => {
+    e.preventDefault();
+    if (passwordJ.test(password)) {
+      console.log(passwordJ.test(password));
+      setCheckPassword("");
+    } else {
+      setCheckPassword(
+        "영문 대소문자, 숫자로 이뤄진 4 ~ 12자리의 비밀번호를 설정해주세요."
+      );
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -22,10 +90,24 @@ const SignUp = () => {
                 </div>
                 <input
                   type="text"
-                  name="username"
+                  name="name"
                   className="login-input"
                   placeholder="이름을 입력하세요"
+                  onChange={onChangeName}
+                  onBlur={onBlurName}
                 />
+                <div
+                  style={{
+                    color: "red",
+                    marginLeft: "15px",
+                    marginTop: "5px",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                  }}
+                  name="name_check"
+                >
+                  {checkName}
+                </div>
               </div>
 
               <div className="input-group2">
@@ -36,10 +118,24 @@ const SignUp = () => {
 
                 <input
                   type="text"
-                  name="email"
+                  name="emailId"
                   className="login-input"
                   placeholder="이메일 형태의 아이디를 입력하세요"
+                  onChange={onChangeEmailId}
+                  onBlur={onBlurEmail}
                 />
+                <div
+                  style={{
+                    color: "red",
+                    marginLeft: "15px",
+                    marginTop: "5px",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                  }}
+                  name="id_check"
+                >
+                  {checkId}
+                </div>
               </div>
 
               <div className="input-group2">
@@ -49,9 +145,10 @@ const SignUp = () => {
 
                 <input
                   type="text"
-                  name="email"
+                  name="nickname"
                   className="login-input"
                   placeholder="다른 사용자에게 보일 닉네임을 입력하세요"
+                  onChange={onChangeNickname}
                 />
               </div>
 
@@ -65,7 +162,21 @@ const SignUp = () => {
                   name="password"
                   className="login-input"
                   placeholder="영문 및 숫자를 포함하여 8자 이상으로 입력하세요"
+                  onChange={onChangePassword}
+                  onBlur={onBlurPassword}
                 />
+                <div
+                  style={{
+                    color: "red",
+                    marginLeft: "15px",
+                    marginTop: "5px",
+                    fontWeight: "bold",
+                    fontSize: "12px",
+                  }}
+                  name="password_check"
+                >
+                  {checkPassword}
+                </div>
               </div>
 
               <Link to="/auth/InvestProfile">
