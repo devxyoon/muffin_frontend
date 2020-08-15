@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import {
   OpinionList,
   OpinionDetail,
@@ -18,7 +18,7 @@ import { FirstInvestProfile } from "./components/non_login/first_invest_profile"
 const App = () => {
   return (
     <Router>
-      <div>
+      <Switch>
         <Route
           exact
           path="/auth/signIn"
@@ -154,7 +154,7 @@ const App = () => {
             </React.Fragment>
           )}
         />
-      </div>
+      </Switch>
     </Router>
   );
 };

@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import "./signup.style.css";
 import Navbar from "../../non_login_navbar/Navbar";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const SignUp = () => {
-  const url = "http://localhost:8080/users/";
+  const url = "http://localhost:8080/users";
 
-  var empJ = /\s/g;
   var emailIdJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   var passwordJ = /^[A-Za-z0-9]{4,12}$/;
   var nameJ = /^[가-힣]{2,6}$/;
@@ -19,6 +18,7 @@ const SignUp = () => {
   const [checkName, setCheckName] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
   const [checkId, setCheckId] = useState("");
+  const history = useHistory();
 
   const onChangeName = (e) => setName(e.target.value);
   const onChangeEmailId = (e) => setEmailId(e.target.value);
@@ -42,12 +42,12 @@ const SignUp = () => {
 
     if (emailIdJ.test(emailId)) {
       axios
-        .get(url + `idCheck/${emailId}`)
+        .get(url + `/idCheck/${emailId}`)
         .then((respose) => {
           console.log(respose.data);
 
           if (respose.data) {
-            setCheckId("");
+            setCheckId("사용 중인 아이디입니다.");
           } else {
             setCheckId("");
           }
@@ -69,6 +69,33 @@ const SignUp = () => {
       setCheckPassword(
         "영문 대소문자, 숫자로 이뤄진 4 ~ 12자리의 비밀번호를 설정해주세요."
       );
+    }
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const user = {
+      emailId: emailId,
+      name: name,
+      password: password,
+      nickname: nickname === "" ? name : nickname,
+    };
+    console.log(
+      `emailId: ${user.emailId}, name: ${user.name}, password: ${user.password}, nickname: ${user.nickname}`
+    );
+    if (checkName === "" && checkPassword === "" && checkId === "") {
+      axios
+        .post(`${url}/signUp`, user)
+        .then((response) => {
+          sessionStorage.setItem("logined_user", user);
+          console.log(sessionStorage.getItem("logined_user"));
+          history.push("/auth/investProfile");
+        })
+        .catch((error) => {
+          console.log("실패");
+        });
+    } else {
+      alert("잘못 입력한 항목이 있습니다.");
     }
   };
 
@@ -179,9 +206,9 @@ const SignUp = () => {
                 </div>
               </div>
 
-              <Link to="/auth/InvestProfile">
-                <button className="join-btn">가입하기</button>
-              </Link>
+              <button className="join-btn" onClick={onSubmit}>
+                가입하기
+              </button>
             </div>
           </div>
         </div>

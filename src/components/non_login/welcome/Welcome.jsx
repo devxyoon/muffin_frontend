@@ -1,7 +1,5 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { slideInUp } from "react-animations";
 import MainIcon from "../../../assets/home/home_main.png";
 import {
   DivideLine,
