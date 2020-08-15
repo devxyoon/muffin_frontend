@@ -87,8 +87,7 @@ const SignUp = () => {
       axios
         .post(`${url}/signUp`, user)
         .then((response) => {
-          sessionStorage.setItem("logined_user", user);
-          console.log(sessionStorage.getItem("logined_user"));
+          sessionStorage.setItem("logined_user", JSON.stringify(response.data));
           history.push("/auth/investProfile");
         })
         .catch((error) => {
