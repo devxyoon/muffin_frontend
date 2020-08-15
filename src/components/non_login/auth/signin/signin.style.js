@@ -65,7 +65,7 @@ export const Buttons = styled.div`
   justify-content: space-around;
 `;
 export const ImgBtnContainer = styled.div`
-  width: 330px;
+  width: 160px;
   height: 40px;
   border: solid 1px var(--greenish-teal);
   border-radius: 18.8px;
@@ -87,6 +87,7 @@ export const OtherLoginBtn = styled.button`
   border: none;
   outline: none;
   height: 40px;
+  width: 
   margin-left: 13px;
   font-size: 14px;
   font-family: NanumSquareB;

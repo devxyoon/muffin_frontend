@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import axios from "axios";
+import { Link, useHistory } from "react-router-dom";
 import {
   SignInContainer,
   LoginContainer,
@@ -13,10 +14,44 @@ import {
   WarnPassword,
   LoginLinkContainer,
   OriginLoginBtn,
+  Buttons,
+  ImgBtnContainer,
+  OtherLoginBtn,
 } from "./signin.style";
 import Navbar from "../../non_login_navbar/Navbar";
 
 const SignIn = () => {
+  const url = "http://localhost:8080/users";
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  const onChangeEmailId = (e) => setEmailId(e.target.value);
+  const onChangePassword = (e) => setPassword(e.target.value);
+
+  const onClickLogin = (e) => {
+    e.preventDefault();
+    if (emailId !== "" && password !== "") {
+      console.log(`emailId : ${emailId}, password : ${password}`);
+      const user = {
+        emailId: emailId,
+        password: password,
+      };
+      axios
+        .post(`${url}/signIn`, user)
+        .then((response) => {
+          sessionStorage.setItem("logined_user", JSON.stringify(response.data));
+          history.push("/home");
+        })
+        .catch((error) => {
+          alert("아이디 또는 비밀번호를 확인해주세요.");
+          window.location.reload();
+        });
+    } else {
+      alert("입력하지않은 항목이 있습니다.");
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -28,13 +63,13 @@ const SignIn = () => {
               <InputGroup>
                 <Row>
                   <Label>아이디</Label>
-                  <WarnId id="warnId">*이메일이 올바르지 않습니다.</WarnId>
                 </Row>
                 <InputBorder>
                   <LoginInput
                     type="text"
                     name="email"
                     placeholder="이메일 형식의 아이디를 입력해주세요"
+                    onChange={onChangeEmailId}
                   />
                 </InputBorder>
               </InputGroup>
@@ -42,23 +77,28 @@ const SignIn = () => {
               <InputGroup>
                 <Row>
                   <Label>비밀번호</Label>
-                  <WarnPassword id="warnPwd">
-                    * 비밀번호가 올바르지 않습니다.
-                  </WarnPassword>
                 </Row>
                 <InputBorder>
                   <LoginInput
                     name="password"
                     placeholder="비밀번호를 입력해주세요"
+                    onChange={onChangePassword}
                   />
                 </InputBorder>
               </InputGroup>
 
               <LoginLinkContainer>
-                <Link to="/home">
-                  <OriginLoginBtn>로그인</OriginLoginBtn>
-                </Link>
+                <OriginLoginBtn onClick={onClickLogin}>로그인</OriginLoginBtn>
               </LoginLinkContainer>
+              <Buttons>
+                <ImgBtnContainer>
+                  <OtherLoginBtn>아이디 찾기</OtherLoginBtn>
+                </ImgBtnContainer>
+
+                <ImgBtnContainer>
+                  <OtherLoginBtn>비밀번호 찾기</OtherLoginBtn>
+                </ImgBtnContainer>
+              </Buttons>
             </LoginContainer>
           </SignInContainer>
         </div>
