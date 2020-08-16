@@ -9,7 +9,7 @@ import { StockPage, StockList } from "./components/login/stocks";
 import { NewsList, NewsDetail } from "./components/login/news";
 import { Home } from "./components/login/home";
 import { Search } from "./components/login/search";
-import { MyPage } from "./components/login/my_page";
+import { MyPage, Withdrawal } from "./components/login/my_page";
 import { PortfolioPage } from "./components/login/portfolio";
 import { SignIn, SignUp } from "./components/non_login/auth/Auth";
 import { Welcome } from "./components/non_login/welcome";
@@ -133,6 +133,15 @@ const App = () => {
           render={(props) => (
             <React.Fragment>
               <MyPage />
+            </React.Fragment>
+          )}
+        />
+        <Route
+          exact
+          path="/withdrawal"
+          render={(props) => (
+            <React.Fragment>
+              <Withdrawal />
             </React.Fragment>
           )}
         />

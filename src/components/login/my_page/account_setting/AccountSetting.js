@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
@@ -30,11 +30,7 @@ const AccountSetting = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
-
-  const onsubmit = (e) => {
+  const onClickUpdate = (e) => {
     e.preventDefault();
     const postUser = {
       id: id,
@@ -132,10 +128,10 @@ const AccountSetting = () => {
               {checkPassword}
             </div>
           </div>
-          <button className="join-btn" onClick={onsubmit}>
+          <button className="join-btn" onClick={onClickUpdate}>
             수정하기
           </button>
-          <Link to="/">
+          <Link to="/withdrawal">
             <button className="withdrawal-btn">회원탈퇴</button>
           </Link>
         </div>
