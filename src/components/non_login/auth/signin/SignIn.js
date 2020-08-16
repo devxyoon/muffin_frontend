@@ -8,10 +8,8 @@ import {
   InputGroup,
   Row,
   Label,
-  WarnId,
   InputBorder,
   LoginInput,
-  WarnPassword,
   LoginLinkContainer,
   OriginLoginBtn,
   Buttons,
@@ -91,13 +89,11 @@ const SignIn = () => {
                 <OriginLoginBtn onClick={onClickLogin}>로그인</OriginLoginBtn>
               </LoginLinkContainer>
               <Buttons>
-                <ImgBtnContainer>
-                  <OtherLoginBtn>아이디 찾기</OtherLoginBtn>
-                </ImgBtnContainer>
-
-                <ImgBtnContainer>
-                  <OtherLoginBtn>비밀번호 찾기</OtherLoginBtn>
-                </ImgBtnContainer>
+                <Link to="/auth/findPassword">
+                  <ImgBtnContainer>
+                    <OtherLoginBtn>비밀번호 찾기</OtherLoginBtn>
+                  </ImgBtnContainer>
+                </Link>
               </Buttons>
             </LoginContainer>
           </SignInContainer>

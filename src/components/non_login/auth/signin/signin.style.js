@@ -65,7 +65,7 @@ export const Buttons = styled.div`
   justify-content: space-around;
 `;
 export const ImgBtnContainer = styled.div`
-  width: 160px;
+  width: 330px;
   height: 40px;
   border: solid 1px var(--greenish-teal);
   border-radius: 18.8px;

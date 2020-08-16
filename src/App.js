@@ -11,7 +11,7 @@ import { Home } from "./components/login/home";
 import { Search } from "./components/login/search";
 import { MyPage, Withdrawal } from "./components/login/my_page";
 import { PortfolioPage } from "./components/login/portfolio";
-import { SignIn, SignUp } from "./components/non_login/auth/Auth";
+import { SignIn, SignUp, FindPassword } from "./components/non_login/auth/Auth";
 import { Welcome } from "./components/non_login/welcome";
 import { FirstInvestProfile } from "./components/non_login/first_invest_profile";
 
@@ -25,6 +25,15 @@ const App = () => {
           render={(props) => (
             <React.Fragment>
               <SignIn />
+            </React.Fragment>
+          )}
+        />
+        <Route
+          exact
+          path="/auth/findPassword"
+          render={(props) => (
+            <React.Fragment>
+              <FindPassword />
             </React.Fragment>
           )}
         />
