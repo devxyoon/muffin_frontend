@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./opinionList.style.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Navbar } from "../logined_navbar";
 import Menu from "../menu/Menu";
 import axios from "axios";
 
 const OpinionList = () => {
   const url = "http://localhost:8080/boards";
-  const [boardArr, setBoardArr] = useState([]); //총 게시물 리스트
+  const [boardArr, setBoardArr] = useState([]);
   const [pageArr, setPageArr] = useState([]);
   const [prev, setPrev] = useState(false);
   const [next, setNext] = useState(false);
   const [page, setPage] = useState(1);
   const [range, setRange] = useState(1);
+  const history = useHistory();
 
   const clickNext = () => {
     getAll(pageArr[0] + 5, range + 1);
@@ -36,8 +37,16 @@ const OpinionList = () => {
         });
         let i = 0;
         const startPage = response.data.pagination.startPage;
-        for (i; i < response.data.pagination.rangeSize; i++)
-          setPageArr((pageArr) => [...pageArr, startPage + i]);
+        if (
+          response.data.pagination.pageCnt <
+          startPage + response.data.pagination.rangeSize
+        ) {
+          for (i; i < response.data.pagination.pageCnt - startPage + 1; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        } else {
+          for (i; i < response.data.pagination.rangeSize; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        }
         setPrev(response.data.pagination.prev);
         setNext(response.data.pagination.next);
       })
@@ -72,11 +81,19 @@ const OpinionList = () => {
                     <li className="post-li">
                       <ul className="post-row-list">
                         <li className="post-row-list-item1">{item.id}</li>
-                        <Link to="/opinion/detail">
-                          <li className="post-row-list-item2">
-                            {item.boardTitle}
-                          </li>
-                        </Link>
+                        <li
+                          className="post-row-list-item2"
+                          style={{ cursor: "pointer" }}
+                          onClick={() => {
+                            sessionStorage.setItem(
+                              "opinionDetail",
+                              JSON.stringify(item)
+                            );
+                            history.push("/opinion/detail");
+                          }}
+                        >
+                          {item.boardTitle}
+                        </li>
 
                         <li className="post-row-list-item3">{item.nickname}</li>
                         <li className="post-row-list-item4">
