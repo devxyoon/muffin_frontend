@@ -12,7 +12,7 @@ const RecommendationOpinion = () => {
     axios
       .get(`${url}/recentBoard`)
       .then((response) => {
-        setArr(response.data.content);
+        response.data.content.map((item) => setArr((arr) => [...arr, item]));
       })
       .catch((error) => {
         console.log("실패");
