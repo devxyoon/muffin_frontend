@@ -31,11 +31,30 @@ const RecommendationOpinion = () => {
                     className="opinion_title"
                     style={{ cursor: "pointer" }}
                     onClick={() => {
-                      sessionStorage.setItem(
-                        "opinionDetail",
-                        JSON.stringify(item)
-                      );
-                      history.push("/opinion/detail");
+                      const boardJson = {
+                        boardId: item.boardId,
+                        userId: item.userId,
+                        boardTitle: item.boardTitle,
+                        boardContent: item.boardContent,
+                        boardRegdate: item.boardRegdate,
+                        nickname: item.nickname,
+                        viewCnt: item.viewCnt + 1,
+                        user: item.User,
+                        commentList: item.commentList,
+                      };
+                      axios
+                        .post(`${url}/update`, boardJson)
+                        .then((response) => {
+                          console.log(boardJson);
+                          sessionStorage.setItem(
+                            "opinionDetail",
+                            JSON.stringify(boardJson)
+                          );
+                          history.push("/opinion/detail");
+                        })
+                        .catch((error) => {
+                          console.log("실패");
+                        });
                     }}
                   >
                     {item.boardTitle}
