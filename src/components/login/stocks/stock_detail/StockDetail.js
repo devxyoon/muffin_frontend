@@ -1,38 +1,43 @@
 import React, { useState, useEffect } from "react";
 import "./stockDetail.css";
-import ModalBuying from "../../../items/ModalBuying";
-import ModalSelling from "../../../items/ModalSelling";
+import { ModalBuying, ModalSelling } from "../../items";
 import axios from "axios";
 
 const StockDetail = () => {
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
 
-  let stockDetail = [];
+  const [nowStock, setNowStock] = useState({
+    stockName: "",
+    symbol: 111111,
+    nowPrice: 0,
+    high: 0,
+    low: 0,
+    volume: 0,
+    //거래 대금 : 0
+    //기준 날짜 :
+  });
 
   useEffect(() => {
-    stockDetail = [];
     axios
       .get(`http://localhost:8080/`)
       .then((response) => {
         console.log(`StockDetail useEffect then python`);
-        response.data.map((element) => {
-          stockDetail.push(element);
-        });
+        setNowStock(response.data);
       })
       .catch((error) => {
         console.log(`StockDetail useEffect catch python`);
         throw error;
       });
-  }, [stockDetail]);
+  }, []);
 
   return (
     <>
       <table className="stock_table w-full">
         <tr className="line_setting_1">
           <td>
-            <span className="stock_name">삼성증권</span>
-            <span className="stock_code">(024832)</span>
+            <span className="stock_name">{nowStock.stockName}</span>
+            <span className="stock_code">({nowStock.symbol})</span>
           </td>
           <td>
             <span className={"text-xs"}>2020.08.21 기준</span>
@@ -57,7 +62,7 @@ const StockDetail = () => {
             <div className="w-full p-4 rounded-lg bg-white border border-grey-100 dark:bg-dark-95 dark:border-dark-90">
               <div className="flex flex-row items-center justify-between">
                 <div className="flex flex-col">
-                  <div className="stock_name">34,291</div>
+                  <div className="stock_name">{nowStock.nowPrice}</div>
                   <div className="text-xs font-light text-grey-500">
                     전일대비 🔼 390 | + 0.93%
                   </div>
@@ -82,27 +87,31 @@ const StockDetail = () => {
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           시가
                         </span>
-                        <span className="text-xl font-bold">34,291</span>
+                        <span className="text-xl font-bold">
+                          {nowStock.nowPrice}
+                        </span>
                       </td>
                       <td className="card_grid">
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           고가
                         </span>
                         <span className="text-xl font-bold text_row">
-                          34,291
+                          {nowStock.high}
                         </span>
                         <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           저가
                         </span>
-                        <span className="text-xl font-bold">34,291</span>
+                        <span className="text-xl font-bold">
+                          {nowStock.low}
+                        </span>
                       </td>
                       <td>
                         <span className="text-xs font-light text-grey-500 stocks_data">
                           거래량
                         </span>
                         <span className="text-xl font-bold text_row">
-                          34,291
+                          {nowStock.volume}
                         </span>
                         <br />
                         <span className="text-xs font-light text-grey-500 stocks_data">

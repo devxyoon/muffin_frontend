@@ -80,7 +80,7 @@ const OpinionList = () => {
                   <ul key={item.index} className="post-ul">
                     <li className="post-li">
                       <ul className="post-row-list">
-                        <li className="post-row-list-item1">{item.id}</li>
+                        <li className="post-row-list-item1">{item.boardId}</li>
                         <li
                           className="post-row-list-item2"
                           style={{ cursor: "pointer" }}
@@ -140,10 +140,10 @@ const OpinionList = () => {
 
               <div className="conference_search">
                 <select className="search_select">
-                  <option className="search_option" value="제목">
+                  <option className="search_option" value="boardTitle">
                     제목
                   </option>
-                  <option className="search_option" value="작성자">
+                  <option className="search_option" value="nickname">
                     작성자
                   </option>
                 </select>

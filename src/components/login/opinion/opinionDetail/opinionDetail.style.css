@@ -117,6 +117,11 @@
   margin-bottom: 20px;
 }
 
+.documentDetailAuthority {
+  display: flex;
+  flex-direction: row;
+}
+
 .documentDetaisubTitle {
   display: flex;
   flex-direction: row;
@@ -152,15 +157,32 @@
 }
 
 .authority {
-  margin-left: 112px;
+  margin-left: 32px;
+  width: 200px;
   font-size: 16px;
   color: var(--brownish-grey);
 }
 
 .authority2 {
-  margin-left: 112px;
+  margin-left: 510px;
   font-size: 16px;
-  color: var(--brownish-grey);
+  color: white;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: var(--greenish-teal);
+}
+
+.authority3 {
+  margin-left: 10px;
+  font-size: 16px;
+  color: white;
+  width: 50px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: var(--white-two);
 }
 
 .btn-p {

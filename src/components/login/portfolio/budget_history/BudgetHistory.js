@@ -3,36 +3,32 @@ import { Link } from "react-router-dom";
 import "./budgetHistory.style.css";
 import axios from "axios";
 
-// <td>{item.transactionDate}</td>
-// <td>{item.stockName}</td>
-// <td>{item.transactionType}</td>
-// <td>{item.profitLoss}</td>
-// <td>{item.totalAsset}</td>
-
 const BudgetHistory = () => {
-  const [list, setList] = useState([]);
-  let transactionDetail = [];
+  const [transacInfo, setTransacInfo] = useState([
+    {
+      transactionDate: "",
+      stockName: "",
+      transactionType: false,
+      purchasePrice: 0,
+      totalAsset: 0,
+    },
+  ]);
 
   const linktoDetail = (e) => {
     e.preventDefault();
   };
 
   useEffect(() => {
-    transactionDetail = [];
     axios
-      .get(`http://localhost:8080/`)
-      .then(({ response }) => {
-        console.log(`BudgetHistory useEffect then`);
-        response.list.map((elem) => {
-          //java에서 어떤 형식으로 response를 넘길지..
-          transactionDetail.push(elem);
-        });
+      .get(`http://localhost:8080/assets/transactionlog`)
+      .then((response) => {
+        setTransacInfo(response.data);
       })
       .catch((error) => {
         console.log(`BudgetHistory useEffect err`);
         throw error;
       });
-  }, [transactionDetail]);
+  }, []);
 
   return (
     <>
@@ -47,12 +43,12 @@ const BudgetHistory = () => {
           </tr>
         </thead>
         <tbody>
-          {transactionDetail.map((item) => (
+          {transacInfo.map((item) => (
             <tr onClick={linktoDetail}>
               <td>{item.transactionDate}</td>
               <td>{item.stockName}</td>
               <td>{item.transactionType}</td>
-              <td>{item.profitLoss}</td>
+              <td>{item.purchasePrice}</td>
               <td>{item.totalAsset}</td>
             </tr>
           ))}

@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./opinionDetail.style.css";
 import Navbar from "../../logined_navbar/Navbar";
 import Menu from "../../menu/Menu";
+import axios from "axios";
 
 const OpinionDetail = () => {
+  const url = "http://localhost:8080/boards";
   const [board, setBoard] = useState(
     JSON.parse(sessionStorage.getItem("opinionDetail"))
   );
+  const [authority, setAuthority] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
-    console.log(board);
+    setAuthority(
+      board.userId === JSON.parse(sessionStorage.getItem("logined_user")).userId
+    );
   });
+
+  const onDelete = (e) => {
+    e.preventDefault();
+    axios
+      .get(`${url}/delete/${board.boardId}`)
+      .then((response) => {
+        alert("삭제가 완료되었습니다.");
+        history.push("/opinion");
+      })
+      .catch((error) => {
+        console.log("실패");
+      });
+  };
 
   return (
     <>
@@ -25,8 +44,22 @@ const OpinionDetail = () => {
                 <div className="Title1">{board.boardTitle}</div>
                 <div className="Title2">{board.boardRegdate}</div>
               </div>
+              <div className="documentDetailAuthority">
+                <div className="authority">작성자 : {board.nickname}</div>
+                {authority && (
+                  <div className="documentDetailAuthority">
+                    <div className="authority2">수정</div>
+                    <div
+                      className="authority3"
+                      style={{ cursor: "pointer" }}
+                      onClick={onDelete}
+                    >
+                      삭제
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="authority">작성자 : {board.nickname}</div>
             <div className="contentdetaildiv">
               <div className="detail_content_01">
                 {board.boardContent.split("\n").map(function (item, idx) {
