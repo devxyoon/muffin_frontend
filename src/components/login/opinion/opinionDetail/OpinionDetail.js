@@ -11,13 +11,24 @@ const OpinionDetail = () => {
     JSON.parse(sessionStorage.getItem("opinionDetail"))
   );
   const [authority, setAuthority] = useState(false);
+  const [content, setContent] = useState([]);
   const history = useHistory();
 
   useEffect(() => {
     setAuthority(
       board.userId === JSON.parse(sessionStorage.getItem("logined_user")).userId
     );
-  });
+    axios
+      .get(`http://localhost:8080/comments/detail/${board.boardId}`)
+      .then((response) => {
+        response.data.map((item) => {
+          setContent((content) => [...content, item]);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const onDelete = (e) => {
     e.preventDefault();
@@ -28,7 +39,7 @@ const OpinionDetail = () => {
         history.push("/opinion");
       })
       .catch((error) => {
-        console.log("실패");
+        console.log(error);
       });
   };
 
@@ -72,28 +83,21 @@ const OpinionDetail = () => {
                 })}
               </div>
             </div>
-            <ul className="commentdiv">
-              <li className="comment-li">
-                <ul className="comment-row-list">
-                  <li className="comment-row-list-item1">배고픈거북이</li>
-                  <li className="comment-row-list-item2">
-                    좋은 정보 감사합니다.
-                  </li>
-                  <li className="comment-row-list-item3">2020-08-08 10:10</li>
-                </ul>
-              </li>
-            </ul>
-            <ul className="commentdiv">
-              <li className="comment-li">
-                <ul className="comment-row-list">
-                  <li className="comment-row-list-item1">귀여운강아지</li>
-                  <li className="comment-row-list-item2">
-                    집값 문제로 온 나라가 뜨겁다.
-                  </li>
-                  <li className="comment-row-list-item3">2020-08-08 10:43</li>
-                </ul>
-              </li>
-            </ul>
+            {content.map((item) => (
+              <ul className="commentdiv" key={item.index}>
+                <li className="comment-li">
+                  <ul className="comment-row-list">
+                    <li className="comment-row-list-item1">{item.nickname}</li>
+                    <li className="comment-row-list-item2">
+                      {item.commentContent}
+                    </li>
+                    <li className="comment-row-list-item3">
+                      {item.commentRegdate}
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            ))}
             <input className="comment_input" />
             <button className="comment_button">댓글달기</button>
           </div>

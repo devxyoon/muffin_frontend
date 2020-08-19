@@ -33,6 +33,35 @@ const OpinionList = () => {
     getAll(pageArr[0] - 1, range - 1);
   };
 
+  const searchPage = (page, range) => {
+    setPage(page);
+    setRange(range);
+    setPageArr([]);
+    setBoardArr([]);
+    axios
+      .get(`${url}/search/${searchWord}/${condition}/${page}/${range}`)
+      .then((response) => {
+        response.data.list.map((item) => {
+          setBoardArr((boardArr) => [...boardArr, item]);
+        });
+        let i = 0;
+        const startPage = response.data.pagination.startPage;
+        if (
+          response.data.pagination.pageCnt <
+          startPage + response.data.pagination.rangeSize
+        ) {
+          for (i; i < response.data.pagination.pageCnt - startPage + 1; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        } else {
+          for (i; i < response.data.pagination.rangeSize; i++)
+            setPageArr((pageArr) => [...pageArr, startPage + i]);
+        }
+        setPrev(response.data.pagination.prev);
+        setNext(response.data.pagination.next);
+      })
+      .catch((error) => console.log("실패"));
+  };
+
   const getAll = (page, range) => {
     setPage(page);
     setRange(range);
@@ -180,7 +209,11 @@ const OpinionList = () => {
                       className="page_button"
                       key={pagenum}
                       onClick={() => {
-                        getAll(pagenum, range);
+                        if (searchWord === "") {
+                          getAll(pagenum, range);
+                        } else {
+                          searchPage(pagenum, range);
+                        }
                       }}
                     >
                       {pagenum}

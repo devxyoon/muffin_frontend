@@ -37,6 +37,7 @@
   margin-left: 112px;
   margin-top: 20px;
   width: 850px;
+  height: 150px;
   margin-bottom: 20px;
 }
 
@@ -44,7 +45,6 @@
   list-style-type: none;
   float: none;
   width: 827px;
-  height: 48px;
   padding-left: 0px;
   padding-right: 0px;
   padding: 8px 10px;
