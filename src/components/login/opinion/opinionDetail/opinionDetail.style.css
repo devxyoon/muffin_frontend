@@ -109,6 +109,22 @@
   outline: none;
 }
 
+.comment-row-list-item4 {
+  position: absolute;
+  left: 745px;
+  top: 110px;
+  width: 200px;
+  list-style-type: none;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  /* margin: auto; */
+  margin-top: 5px;
+  font-size: 16px;
+  float: left;
+  border: none;
+}
+
 .documentDetailTitle {
   display: flex;
   flex-direction: row;

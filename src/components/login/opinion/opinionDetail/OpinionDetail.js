@@ -94,6 +94,28 @@ const OpinionDetail = () => {
                     <li className="comment-row-list-item3">
                       {item.commentRegdate}
                     </li>
+                    {JSON.parse(sessionStorage.getItem("logined_user"))
+                      .userId === item.user.userId && (
+                      <li
+                        className="comment-row-list-item4"
+                        style={{ cursor: "pointer" }}
+                        onClick={(e) => {
+                          axios
+                            .get(
+                              `http://localhost:8080/comments/delete/${item.commentId}`
+                            )
+                            .then((response) => {
+                              alert("댓글 삭제가 완료되었습니다.");
+                              window.location.reload();
+                            })
+                            .catch((error) => {
+                              console.log(error);
+                            });
+                        }}
+                      >
+                        삭제
+                      </li>
+                    )}
                   </ul>
                 </li>
               </ul>
