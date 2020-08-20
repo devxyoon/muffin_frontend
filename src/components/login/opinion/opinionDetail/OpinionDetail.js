@@ -87,14 +87,9 @@ const OpinionDetail = () => {
             </div>
             <div className="contentdetaildiv">
               <div className="detail_content_01">
-                {board.boardContent.split("\n").map(function (item, idx) {
-                  return (
-                    <span key={idx}>
-                      {item}
-                      <br />
-                    </span>
-                  );
-                })}
+                <span
+                  dangerouslySetInnerHTML={{ __html: board.boardContent }}
+                ></span>
               </div>
             </div>
             {content.map((item) => (

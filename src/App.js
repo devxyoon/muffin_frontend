@@ -4,6 +4,7 @@ import {
   OpinionList,
   OpinionDetail,
   OpinionRegister,
+  OpinionEdit,
 } from "./components/login/opinion";
 import { StockPage, StockList } from "./components/login/stocks";
 import { NewsList, NewsDetail } from "./components/login/news";
@@ -97,6 +98,15 @@ const App = () => {
           render={(props) => (
             <React.Fragment>
               <OpinionRegister />
+            </React.Fragment>
+          )}
+        />
+        <Route
+          exact
+          path="/opinion/update"
+          render={(props) => (
+            <React.Fragment>
+              <OpinionEdit />
             </React.Fragment>
           )}
         />
