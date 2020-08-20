@@ -13,6 +13,20 @@ const OpinionDetail = () => {
   const [authority, setAuthority] = useState(false);
   const [content, setContent] = useState([]);
   const history = useHistory();
+  const [commentContent, setCommentContent] = useState("");
+
+  const onChangeComment = (e) => {
+    setCommentContent(e.target.value);
+  };
+
+  function getFormatDate(date) {
+    var year = date.getFullYear();
+    var month = 1 + date.getMonth();
+    month = month >= 10 ? month : "0" + month;
+    var day = date.getDate();
+    day = day >= 10 ? day : "0" + day;
+    return year + "-" + month + "-" + day;
+  }
 
   useEffect(() => {
     setAuthority(
@@ -120,8 +134,30 @@ const OpinionDetail = () => {
                 </li>
               </ul>
             ))}
-            <input className="comment_input" />
-            <button className="comment_button">댓글달기</button>
+            <input className="comment_input" onChange={onChangeComment} />
+            <button
+              className="comment_button"
+              onClick={(e) => {
+                const comment = {
+                  user: JSON.parse(sessionStorage.getItem("logined_user")),
+                  board: board,
+                  commentContent: commentContent,
+                  nickname: JSON.parse(sessionStorage.getItem("logined_user"))
+                    .nickname,
+                  commentRegdate: getFormatDate(new Date()),
+                };
+                axios
+                  .post(`http://localhost:8080/comments/insert`, comment)
+                  .then((response) => {
+                    window.location.reload();
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
+              }}
+            >
+              댓글달기
+            </button>
           </div>
         </div>
       </div>
