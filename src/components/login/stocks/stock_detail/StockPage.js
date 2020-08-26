@@ -23,7 +23,11 @@ const StockPage = ({ props, match }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/assets/holdingCount/1`)
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
       .then((response) => {
         console.log(
           ` : StockPage java useEffect then --- ${JSON.stringify(

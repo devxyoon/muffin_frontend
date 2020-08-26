@@ -16,6 +16,9 @@ const RecommendationStock = () => {
     axios
       .get(`${url}/findOne/${user.userId}`)
       .then((response) => {
+        console.log(
+          `${response.data.investmentPeriod}, ${response.data.investmentPropensity}`
+        );
         python(
           response.data.investmentPeriod,
           response.data.investmentPropensity
@@ -67,7 +70,6 @@ const RecommendationStock = () => {
           전일비: res.data.전일비[4],
           redofblue: res.data.전일비[4].includes("-") ? "down" : "up",
         };
-
         setStocks([stock1, stock2, stock3, stock4, stock5]);
       })
       .catch((err) => {
