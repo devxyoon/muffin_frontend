@@ -15,7 +15,7 @@ const PortfolioPage = () => {
     },
     {
       title: "거래내역",
-      content: <BudgetHistory asset={asset} setAsset={setAsset} />,
+      content: <BudgetHistory />,
     },
   ];
 

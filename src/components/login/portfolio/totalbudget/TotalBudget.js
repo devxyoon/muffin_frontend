@@ -24,7 +24,7 @@ const TotalBudget = (props) => {
 
   useEffect(() => {
     if (asset[0]) console.log(asset[0].totalAsset);
-  }, [asset]);
+  }, []);
 
   return (
     <>

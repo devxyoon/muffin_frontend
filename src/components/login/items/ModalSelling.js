@@ -10,8 +10,8 @@ const ModalSelling = (props) => {
   const [matchedUserStocks, setMatechedUserStock] = useState({});
   const [matchedUserStockId, setMatechedUserStockId] = useState({});
   const [matchedAssetId, setMatechedAssetId] = useState({});
-  const [assetId, setAssetId] = useState(0);
-  const [stockId, setStockId] = useState(0);
+  const [assetId, setAssetId] = useState(props.ownedAsset.assetId);
+  const [stockId, setStockId] = useState(props.ownedAsset.stockId);
   const [stockName, setStockName] = useState(props.ownedAsset.stockName);
   const [symbol, setSymbol] = useState(
     props.ownedAsset.symbol != null
@@ -21,18 +21,31 @@ const ModalSelling = (props) => {
   const [nowPrice] = useState(
     parseInt(
       props.ownedAsset.nowPrice != null
-        ? props.ownedAsset.nowPrice.replace(",", "")
+        ? props.ownedAsset.nowPrice
         : props.stockOne.now.replace(",", "")
     )
   );
-  const [shareCount, setShareCount] = useState(
-    props.ownedAsset.shareCount != null ? props.ownedAsset.shareCount : 1
-  );
+  const [shareCount, setShareCount] = useState(props.ownedAsset.shareCount);
   const [totalAmount, setTotalAmount] = useState(props.ownedAsset.totalAsset);
   const [transactionDate, setTransactionDate] = useState(new Date());
   const [purchasePrice, setPurchasePrice] = useState(nowPrice);
   const [sellCount, setSellCount] = useState(1);
   const [transactionType] = useState("매도");
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+      .then((response) => {
+        setAsset(response.data.holdingCount);
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, []);
 
   // assetId mount
   useEffect(() => {
@@ -67,11 +80,6 @@ const ModalSelling = (props) => {
     }
   }, [matchedUserStocks]);
 
-  useEffect(() => {
-    setShareCount(matchedUserStocks.shareCount);
-    console.log(shareCount);
-  }, [matchedUserStocks]);
-
   const decrease = (e) => {
     e.preventDefault();
     if (sellCount > 1) {
@@ -81,6 +89,7 @@ const ModalSelling = (props) => {
       alert("올바른 수량을 입력하세요.");
     }
   };
+
   const increase = (e) => {
     e.preventDefault();
     if (shareCount > sellCount) {
@@ -96,6 +105,7 @@ const ModalSelling = (props) => {
     const newTransaction = {
       userId: JSON.parse(sessionStorage.getItem("logined_user")).userId,
       assetId: assetId,
+      stockId: stockId,
       stockName: stockName,
       symbol: symbol,
       shareCount: sellCount,
@@ -104,6 +114,7 @@ const ModalSelling = (props) => {
       transactionDate: new Date().toLocaleDateString(),
       transactionType: transactionType,
     };
+    console.log(newTransaction);
     axios
       .post(
         url +
@@ -146,15 +157,13 @@ const ModalSelling = (props) => {
             className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
             onClick={decrease}
           >
-            {" "}
-            -1{" "}
+            -1
           </button>
           <button
             className="btn btn-default bg-transparent plus_minus_btn btn-rounded btn-raised"
             onClick={increase}
           >
-            {" "}
-            +1{" "}
+            +1
           </button>
         </div>
         <tr>
