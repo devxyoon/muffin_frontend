@@ -12,7 +12,11 @@ const ModalSelling = (props) => {
   const [matchedAssetId, setMatechedAssetId] = useState({});
   const [assetId, setAssetId] = useState(props.ownedAsset.assetId);
   const [stockId, setStockId] = useState(props.ownedAsset.stockId);
-  const [stockName, setStockName] = useState(props.ownedAsset.stockName);
+  const [stockName, setStockName] = useState(
+    props.ownedAsset.stockName != null
+      ? props.ownedAsset.stockName
+      : props.stockOne.stockName
+  );
   const [symbol, setSymbol] = useState(
     props.ownedAsset.symbol != null
       ? props.ownedAsset.symbol
@@ -126,6 +130,7 @@ const ModalSelling = (props) => {
         setAsset(response.data);
         setShareCount(1);
         setPurchasePrice(nowPrice);
+        alert("매도가 완료되었습니다.");
         props.isClose(false);
       })
       .catch((error) => {
@@ -146,11 +151,16 @@ const ModalSelling = (props) => {
         <span className="text_small" style={{ "margin-right": "8px" }}>
           현재가
         </span>
-        <span className="text_small ">{nowPrice} 원</span> <br />
+        <span className="text_small ">
+          {String(nowPrice).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
+        </span>{" "}
+        <br />
         <span className="text_small" style={{ "margin-right": "8px" }}>
           매도가
         </span>
-        <span className="text_small ">{purchasePrice} 원</span>
+        <span className="text_small ">
+          {String(purchasePrice).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
+        </span>
         <h1>{sellCount} 주</h1>
         <div>
           <button

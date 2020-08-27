@@ -8,9 +8,10 @@ import Menu from "../menu/Menu";
 import { AssetContext, StockContext } from "../../../context";
 
 const StockList = () => {
-  const { asset, setAsset } = useContext(AssetContext);
+  /*  const { asset, setAsset } = useContext(AssetContext); */
+  const [asset, setAsset] = useState([]);
   const { crawledStock, setCrawledStock } = useContext(StockContext);
-
+  const [assetStockName, setAssetStockName] = useState([]);
   const [ownedAsset, setOwnedAsset] = useState({});
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
@@ -32,6 +33,9 @@ const StockList = () => {
        }
      }
    }*/
+  useEffect(() => {
+    getAll(1, 1);
+  }, []);
 
   useEffect(() => {
     axios
@@ -41,7 +45,14 @@ const StockList = () => {
         }`
       )
       .then((response) => {
-        setAsset(response.data.holdingCount);
+        console.log(response.data.holdingCount);
+        response.data.holdingCount.map((item) => {
+          setAsset((asset) => [...asset, item]);
+          setAssetStockName((assetStockName) => [
+            ...assetStockName,
+            item.stockName,
+          ]);
+        });
       })
       .catch((error) => {
         throw error;
@@ -98,9 +109,6 @@ const StockList = () => {
         throw error;
       });
   };
-  useEffect(() => {
-    getAll(1, 1);
-  }, []);
 
   return (
     <>
@@ -154,9 +162,19 @@ const StockList = () => {
                           <button
                             className="btn btn-default btn-red text-white btn-rounded"
                             onClick={(e) => {
+                              console.log(crawledOneStock);
                               e.preventDefault();
-                              setSellOpen(true);
-                              setStockOne(crawledOneStock);
+                              if (
+                                assetStockName.includes(
+                                  crawledOneStock.stockName
+                                )
+                              ) {
+                                setStockOne(crawledOneStock);
+                                console.log(stockOne);
+                                setSellOpen(true);
+                              } else {
+                                alert(`현재 보유 중인 종목이 아닙니다.`);
+                              }
                             }}
                           >
                             매도
