@@ -15,15 +15,10 @@ const TotalBudget = (props) => {
       )
       .then((response) => {
         setAsset(response.data.holdingCount);
-        console.log(response.data.holdingCount[0].totalAsset);
       })
       .catch((error) => {
         throw error;
       });
-  }, []);
-
-  useEffect(() => {
-    if (asset[0]) console.log(asset[0].totalAsset);
   }, []);
 
   return (
@@ -32,7 +27,11 @@ const TotalBudget = (props) => {
         <td style={{ paddingRight: "30px" }}>
           <div className="my_totlabudget_title"> 내 자산총액</div>
           <div className="my_totlabudget_money">
-            {asset[0] && asset[0].totalAsset}원
+            {String(asset[0] && asset[0].totalAsset).replace(
+              /\B(?=(\d{3})+(?!\d))/g,
+              ","
+            )}
+            원
           </div>
         </td>
         <td style={{ paddingRight: "30px" }}>
@@ -45,7 +44,10 @@ const TotalBudget = (props) => {
         <td style={{ paddingRight: "30px" }}>
           <div className="my_totlabudget_title">평가 손익</div>
           <span className="my_totlabudget_money" style={{ color: "#ea5455" }}>
-            {asset[0] && asset[0].totalProfit}
+            {String(asset[0] && asset[0].totalProfit).replace(
+              /\B(?=(\d{3})+(?!\d))/g,
+              ","
+            )}
           </span>
           <span className="my_totlabudget_money"> 원</span>
         </td>

@@ -74,8 +74,15 @@ const BudgetHistory = () => {
                 <td>{item.transactionDate}</td>
                 <td>{item.stockName}</td>
                 <td>{item.transactionType}</td>
-                <td>{item.money}</td>
-                <td>{item.totalAsset}</td>
+                <td>
+                  {String(item.money).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </td>
+                <td>
+                  {String(item.totalAsset).replace(
+                    /\B(?=(\d{3})+(?!\d))/g,
+                    ","
+                  )}
+                </td>
               </tr>
             ))}
         </tbody>

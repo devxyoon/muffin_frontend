@@ -66,13 +66,21 @@ const HoldingShares = (props) => {
                         <td style={{ width: "200px" }}>
                           <span className="td_margin">잔고</span>
                           <span className="td_won_font">
-                            {ownedAsset.shareCount}주
+                            {String(ownedAsset.shareCount).replace(
+                              /\B(?=(\d{3})+(?!\d))/g,
+                              ","
+                            )}
+                            주
                           </span>
                         </td>
                         <td style={{ "min-width": "200px" }}>
                           <span className="td_margin">손익</span>
                           <span className="td_won_font">
-                            {ownedAsset.profitLoss} 원
+                            {String(ownedAsset.profitLoss).replace(
+                              /\B(?=(\d{3})+(?!\d))/g,
+                              ","
+                            )}{" "}
+                            원
                           </span>
                         </td>
                       </tr>
@@ -80,7 +88,11 @@ const HoldingShares = (props) => {
                         <td style={{ "min-width": "200px" }}>
                           <span className="td_margin_2">평가 금액</span>
                           <span className="td_won_font">
-                            {ownedAsset.evaluatedSum} 원
+                            {String(ownedAsset.evaluatedSum).replace(
+                              /\B(?=(\d{3})+(?!\d))/g,
+                              ","
+                            )}{" "}
+                            원
                           </span>
                         </td>
                         <td style={{ "min-width": "200px" }}>
@@ -94,13 +106,21 @@ const HoldingShares = (props) => {
                         <td style={{ "min-width": "200px" }}>
                           <span className="td_margin_3">매입가</span>
                           <span className="td_won_font">
-                            {ownedAsset.purchasePrice} 원
+                            {String(ownedAsset.purchasePrice).replace(
+                              /\B(?=(\d{3})+(?!\d))/g,
+                              ","
+                            )}{" "}
+                            원
                           </span>
                         </td>
                         <td style={{ "min-width": "200px" }}>
                           <span className="td_margin_3">현재가</span>
                           <span className="td_won_font">
-                            {ownedAsset.nowPrice} 원
+                            {String(ownedAsset.nowPrice).replace(
+                              /\B(?=(\d{3})+(?!\d))/g,
+                              ","
+                            )}{" "}
+                            원
                           </span>
                         </td>
                       </tr>

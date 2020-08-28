@@ -9,7 +9,7 @@ import { AssetContext, StockContext } from "../../../context";
 
 const StockList = () => {
   /*  const { asset, setAsset } = useContext(AssetContext); */
-  const [asset, setAsset] = useState([]);
+  const { asset, setAsset } = useContext(AssetContext);
   const { crawledStock, setCrawledStock } = useContext(StockContext);
   const [assetStockName, setAssetStockName] = useState([]);
   const [ownedAsset, setOwnedAsset] = useState({});
@@ -45,9 +45,8 @@ const StockList = () => {
         }`
       )
       .then((response) => {
-        console.log(response.data.holdingCount);
+        setAsset(response.data.holdingCount);
         response.data.holdingCount.map((item) => {
-          setAsset((asset) => [...asset, item]);
           setAssetStockName((assetStockName) => [
             ...assetStockName,
             item.stockName,
