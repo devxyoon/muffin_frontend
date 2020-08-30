@@ -19,20 +19,6 @@ const StockList = () => {
   const [stockOne, setStockOne] = useState({});
   const showDetail = () => {};
 
-  /* const matchedUserAsset = (crawledStock) => {
-     for (let i = 0; i < crawledStock.length; i++) {
-       console.log(crawledStock.length)
-       console.log(crawledStock[i])
-       console.log(crawledStock[i].stockName)
-       console.log(asset[i])
-       if(crawledStock[0]) {
-         if (asset[i].stockName === crawledStock[i].stockName) {
-           setMatechedUserStock(asset[i]);
-           console.log(matchedUserAsset(i));
-         }
-       }
-     }
-   }*/
   useEffect(() => {
     getAll(1, 1);
   }, []);
@@ -46,7 +32,7 @@ const StockList = () => {
       )
       .then((response) => {
         setAsset(response.data.holdingCount);
-        response.data.holdingCount.map((item) => {
+        response.data.map((item) => {
           setAssetStockName((assetStockName) => [
             ...assetStockName,
             item.stockName,
@@ -84,7 +70,6 @@ const StockList = () => {
     axios
       .get(`http://localhost:8080/stocks/pagination/${page}/${range}`)
       .then((response) => {
-        console.log(response.data.list);
         response.data.list.map((item) => {
           setCrawledStock((crawledStock) => [...crawledStock, item]);
         });

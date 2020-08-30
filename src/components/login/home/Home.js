@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from "react";
 import "./home.style.css";
 import { Link } from "react-router-dom";
 import WordCanvas from "./wordcanvas/WordCanvas";
-import Recommendation_News from "./recommendation_news/Recommendation_News";
+import Recent_News from "./recent_news/Recent_News";
 import Asset from "./asset/Asset";
-import RecommendationOpinion from "./recommendation_opinion/RecommendationOpinion";
+import Recent_Opinion from "./recent_opinion/Recent_Opinion";
 import RecommendationStock from "./recommendation_stock/RecommendationStock";
 import { Navbar } from "../logined_navbar";
 import Menu from "../menu/Menu";
@@ -28,7 +28,7 @@ const Home = () => {
                   </Link>
                 </div>
                 <div className="newsList">
-                  <Recommendation_News />
+                  <Recent_News />
                 </div>
               </div>
               <div className="keyword_wordcloud">
@@ -68,7 +68,7 @@ const Home = () => {
                   </Link>
                 </div>
                 <div>
-                  <RecommendationOpinion />
+                  <Recent_Opinion />
                 </div>
               </div>
             </div>
