@@ -211,7 +211,10 @@ const StockList = () => {
               stockOne={stockOne}
               ownedAsset={ownedAsset}
               isOpen={buyOpen}
-              isClose={() => setBuyOpen(false)}
+              isClose={() => {
+                window.location.reload();
+                return setBuyOpen(false);
+              }}
               ariaHideApp={false}
             />
           )}
@@ -220,7 +223,10 @@ const StockList = () => {
               stockOne={stockOne}
               ownedAsset={ownedAsset}
               isOpen={sellOpen}
-              isClose={() => setSellOpen(false)}
+              isClose={() => {
+                window.location.reload();
+                return setSellOpen(false);
+              }}
               ariaHideApp={false}
             />
           )}

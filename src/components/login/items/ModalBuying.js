@@ -1,8 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import "./modal.style.css";
 import axios from "axios";
-import { AssetContext } from "../../../context";
 
 const ModalBuying = (props) => {
   const url = "http://localhost:8080/assets/";
