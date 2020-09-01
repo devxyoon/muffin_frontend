@@ -3,32 +3,12 @@ import { ModalBuying, ModalSelling } from "../../items";
 import "./holdingShares.style.css";
 import axios from "axios";
 
-const HoldingShares = () => {
+const HoldingShares = ({ asset }) => {
   const [ownedAsset, setOwnedAsset] = useState({});
   const [buyOpen, setBuyOpen] = useState(false);
   const [sellOpen, setSellOpen] = useState(false);
 
   const [stockOne, setStockOne] = useState({});
-
-  const [asset, setAsset] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        `http://localhost:8080/assets/holdingCount/${
-          JSON.parse(sessionStorage.getItem("logined_user")).userId
-        }`
-      )
-      .then((response) => {
-        response.data.map((item) => {
-          setAsset((asset) => [...asset, item]);
-        });
-        console.log(asset);
-      })
-      .catch((error) => {
-        throw error;
-      });
-  }, []);
 
   return (
     <>
@@ -41,7 +21,7 @@ const HoldingShares = () => {
                   (ownedAsset, i) =>
                     ownedAsset.stockName && (
                       <div
-                        className="flex flex-row items-center justify-between"
+                        className="flex flex-row items-center justify-between stock_card"
                         key={i}
                       >
                         <div className="flex flex-col">

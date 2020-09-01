@@ -1,53 +1,49 @@
 @import "../../../style.css";
 
 .home_container {
-  width: 1500px;
-  height: 1000px;
-  margin-left: 83px;
-  margin-top: 42px;
+  padding-top: 20px;
+  margin: 20px auto;
 }
 
-.recommendation_news_container {
-  width: 1500px;
-  height: 500px;
+.recent_news_container {
   display: flex;
+  width: 98%;
   flex-direction: row;
 }
 
-.recommendation_news_section {
-  width: 1000px;
-  height: 500px;
+.recent_news_section {
+  width: 58%;
+  height: 60%;
 }
 
 .keyword_wordcloud {
-  width: 500px;
-  height: 500px;
+  margin-left: 3%;
+  width: 30%;
+  height: 30%;
 }
 
 .other_container {
-  width: 1500px;
-  height: 500px;
   display: flex;
   flex-direction: row;
 }
 
 .asset_section {
-  width: 500px;
-  height: 500px;
+  width: 31%;
+  height: 100%;
 }
 
 .stock_section {
-  width: 500px;
-  height: 500px;
+  margin-left: 1%;
+  width: 28%;
+  height: 100%;
 }
 
 .opinion_section {
-  width: 500px;
-  height: 500px;
+  width: 31%;
+  height: 100%;
 }
 
 .documentroom_text {
-  font-size: 20px;
   font-family: NanumSquareB;
 }
 
@@ -62,16 +58,16 @@
 
 .more {
   position: relative;
-  left: 85%;
+  left: 82%;
   margin-top: 9px;
   color: var(--brownish-grey);
   font-size: 14px;
-  width: 300px;
+  width: 100px;
 }
 
 .more_2 {
   position: relative;
-  left: 70%;
+  left: 71%;
   margin-top: 9px;
   color: var(--brownish-grey);
   font-size: 14px;
@@ -80,19 +76,14 @@
 
 .more_3 {
   position: relative;
-  left: 60%;
+  left: 58%;
   margin-top: 9px;
   color: var(--brownish-grey);
   font-size: 14px;
   width: 300px;
 }
 
-.wordcloud {
-  width: 450px;
-  height: 450px;
-}
-
 .newsList {
-  width: 940px;
-  height: 400px;
+  width: 800px;
+  height: 350px;
 }

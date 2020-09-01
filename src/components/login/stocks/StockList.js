@@ -31,7 +31,7 @@ const StockList = () => {
         }`
       )
       .then((response) => {
-        setAsset(response.data.holdingCount);
+        setAsset(response.data);
         response.data.map((item) => {
           setAssetStockName((assetStockName) => [
             ...assetStockName,
@@ -146,7 +146,6 @@ const StockList = () => {
                           <button
                             className="btn btn-default btn-red text-white btn-rounded"
                             onClick={(e) => {
-                              console.log(crawledOneStock);
                               e.preventDefault();
                               if (
                                 assetStockName.includes(
@@ -194,15 +193,6 @@ const StockList = () => {
                     </div>
                   )}
                 </div>
-              </div>
-              <div className="conference_search">
-                <input
-                  placeholder="주식 종목을 입력해주세요."
-                  className="search_input"
-                />
-                <Link to="" className="search_button">
-                  검색
-                </Link>
               </div>
             </div>
           </div>

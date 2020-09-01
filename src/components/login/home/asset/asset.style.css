@@ -13,19 +13,17 @@
 
 .today {
   position: relative;
-  left: 46%;
   margin-top: 3px;
   color: var(--brownish-grey);
   font-size: 14px;
-  width: 300px;
+  padding-left: 180px;
 }
-
 .my_money {
   font-size: 30px;
   font-weight: bold;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  width: 475px;
+  width: 415px;
   border-bottom: solid 1px var(--white-two);
 }
 

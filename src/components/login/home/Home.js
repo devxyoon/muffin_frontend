@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import "./home.style.css";
 import { Link } from "react-router-dom";
 import WordCanvas from "./wordcanvas/WordCanvas";
@@ -8,19 +8,17 @@ import Recent_Opinion from "./recent_opinion/Recent_Opinion";
 import RecommendationStock from "./recommendation_stock/RecommendationStock";
 import { Navbar } from "../logined_navbar";
 import Menu from "../menu/Menu";
-import { AssetContext } from "../../../context";
-import axios from "axios";
 
 const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="content-container">
+      <div className="main_container">
         <div className="wrapper">
           <Menu />
           <div className="home_container">
-            <div className="recommendation_news_container">
-              <div className="recommendation_news_section">
+            <div className="recent_news_container">
+              <div className="recent_news_section">
                 <div className="title_section">
                   <div className="documentroom_text">최신 뉴스</div>
                   <Link to="/news" className="more">

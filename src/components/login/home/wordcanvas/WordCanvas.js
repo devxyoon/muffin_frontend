@@ -36,7 +36,7 @@ const WordConvas = () => {
     enableTooltip: true,
     deterministic: false,
     fontFamily: "impact",
-    fontSizes: [30, 80],
+    fontSizes: [30, 50],
     fontStyle: "normal",
     fontWeight: "bold",
     rotations: 1,
@@ -61,9 +61,12 @@ const WordConvas = () => {
 
   return (
     <>
-      <div style={{ height: 300, width: 500 }}>
-        <ReactWordcloud callbacks={callbacks} words={word} options={options} />
-      </div>
+      <ReactWordcloud
+        callbacks={callbacks}
+        words={word}
+        options={options}
+        size={[400, 300]}
+      />
     </>
   );
 };

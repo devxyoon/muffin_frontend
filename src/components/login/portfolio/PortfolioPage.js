@@ -10,7 +10,7 @@ const PortfolioPage = () => {
   const portfolioContent = [
     {
       title: "보유종목",
-      content: <HoldingShares asset={asset} setAsset={setAsset} />,
+      content: <HoldingShares asset={asset} />,
     },
     {
       title: "거래내역",
@@ -31,6 +31,23 @@ const PortfolioPage = () => {
     0,
     portfolioContent
   );
+
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8080/assets/holdingCount/${
+          JSON.parse(sessionStorage.getItem("logined_user")).userId
+        }`
+      )
+      .then((response) => {
+        response.data.map((item) => {
+          setAsset((asset) => [...asset, item]);
+        });
+      })
+      .catch((error) => {
+        throw error;
+      });
+  }, []);
 
   return (
     <>

@@ -51,9 +51,16 @@
 }
 
 .tr_height_title {
-  height: 100px;
+  height: 70px;
 }
 
 .tr_height {
   height: 40px;
+}
+
+.stock_card {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #a7a7a7;
+  max-width: 430px;
 }

@@ -21,32 +21,23 @@ const Recent_News = () => {
 
   return (
     <>
-      <div className="recommendation_container">
+      <div className="recent_container">
         {newsList.map((item) => (
-          <div key={item.newsId}>
-            <div>
-              <div>
-                <div>
-                  <div className="news_title_section">
-                    <div className="news_title">
-                      <Link to={`/news/detail/${item.newsId}`} className="link">
-                        <div
-                          className="news_title_style"
-                          onClick={() => {
-                            showDetail(item.newsTitle);
-                          }}
-                        >
-                          {item.newsTitle}
-                        </div>
-                      </Link>
-                    </div>
-                    <div className="news_regdate">{item.newsRegDate}</div>
+          <div className="test" key={item.newsId}>
+            <div className="news_title_section">
+              <div className="news_title">
+                <Link to={`/news/detail/${item.newsId}`} className="link">
+                  <div
+                    className="news_title_style"
+                    onClick={() => {
+                      showDetail(item.newsTitle);
+                    }}
+                  >
+                    {item.newsTitle}
                   </div>
-                  {/*<div className="news_summary_section">
-                    <div>{item.summary}</div>
-                  </div>*/}
-                </div>
+                </Link>
               </div>
+              <div className="news_regdate">{item.newsRegDate}</div>
             </div>
           </div>
         ))}
