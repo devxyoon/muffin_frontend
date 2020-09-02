@@ -41,6 +41,7 @@ const RecommendationStock = () => {
           전일대비: res.data.전일대비[0].replace(/\B(?=(\d{3})+(?!\d))/g, ","),
           전일비: res.data.전일비[0],
           redofblue: res.data.전일비[0].includes("-") ? "down" : "up",
+          종목코드: res.data.종목코드[0],
         };
         const stock2 = {
           종목명: res.data.종목명[1],
@@ -48,6 +49,7 @@ const RecommendationStock = () => {
           전일대비: res.data.전일대비[1].replace(/\B(?=(\d{3})+(?!\d))/g, ","),
           전일비: res.data.전일비[1],
           redofblue: res.data.전일비[1].includes("-") ? "down" : "up",
+          종목코드: res.data.종목코드[1],
         };
         const stock3 = {
           종목명: res.data.종목명[2],
@@ -55,6 +57,7 @@ const RecommendationStock = () => {
           전일대비: res.data.전일대비[2].replace(/\B(?=(\d{3})+(?!\d))/g, ","),
           전일비: res.data.전일비[2],
           redofblue: res.data.전일비[2].includes("-") ? "down" : "up",
+          종목코드: res.data.종목코드[2],
         };
         const stock4 = {
           종목명: res.data.종목명[3],
@@ -62,6 +65,7 @@ const RecommendationStock = () => {
           전일대비: res.data.전일대비[3].replace(/\B(?=(\d{3})+(?!\d))/g, ","),
           전일비: res.data.전일비[3],
           redofblue: res.data.전일비[3].includes("-") ? "down" : "up",
+          종목코드: res.data.종목코드[3],
         };
         const stock5 = {
           종목명: res.data.종목명[4],
@@ -69,6 +73,7 @@ const RecommendationStock = () => {
           전일대비: res.data.전일대비[4].replace(/\B(?=(\d{3})+(?!\d))/g, ","),
           전일비: res.data.전일비[4],
           redofblue: res.data.전일비[4].includes("-") ? "down" : "up",
+          종목코드: res.data.종목코드[4],
         };
         setStocks([stock1, stock2, stock3, stock4, stock5]);
       })
@@ -81,7 +86,7 @@ const RecommendationStock = () => {
     <div className="recommendation_stock_container1">
       {stocks.map((stock) => (
         <div className="stock_detail_section_01" key={stock.index}>
-          <Link to="/stock/detail">
+          <Link to={`/stock/detail/${stock.종목코드}`}>
             <div className="stock_title_section">{stock.종목명}</div>
           </Link>
           <div className={stock.redofblue}>
