@@ -11,7 +11,7 @@ const StockPage = ({ props, match }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/stocks/${match.params.symbol}`)
+      .get(`http://15.165.116.146:8080/stocks/${match.params}`)
       .then((response) => {
         setStockDetail(response.data);
       })
@@ -23,7 +23,7 @@ const StockPage = ({ props, match }) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/assets/holdingCount/${
+        `http://15.165.116.146:8080/assets/holdingCount/${
           JSON.parse(sessionStorage.getItem("logined_user")).userId
         }`
       )

@@ -20,8 +20,8 @@ import Navbar from "../../non_login_navbar/Navbar";
 
 const SignIn = () => {
   const url = "http://localhost:8080/users";
-  const [emailId, setEmailId] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailId, setEmailId] = useState("yoonjng0709@gmail.com");
+  const [password, setPassword] = useState("123456789");
   const history = useHistory();
 
   const onChangeEmailId = (e) => setEmailId(e.target.value);
@@ -67,7 +67,7 @@ const SignIn = () => {
                   <LoginInput
                     type="text"
                     name="email"
-                    placeholder="이메일 형식의 아이디를 입력해주세요"
+                    placeholder="yoonjng0709@gmail.com"
                     onChange={onChangeEmailId}
                   />
                 </InputBorder>
@@ -80,11 +80,12 @@ const SignIn = () => {
                 <InputBorder>
                   <LoginInput
                     name="password"
-                    placeholder="비밀번호를 입력해주세요"
+                    placeholder="123456789"
                     onChange={onChangePassword}
                   />
                 </InputBorder>
               </InputGroup>
+              <div>※로그인 버튼 누르면 됩니다. :)</div>
 
               <LoginLinkContainer>
                 <OriginLoginBtn onClick={onClickLogin}>로그인</OriginLoginBtn>

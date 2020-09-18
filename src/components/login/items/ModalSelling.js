@@ -10,7 +10,11 @@ const ModalSelling = (props) => {
   const [matchedUserStockId, setMatechedUserStockId] = useState({});
   const [matchedAssetId, setMatechedAssetId] = useState({});
   const [assetId, setAssetId] = useState(props.ownedAsset.assetId);
-  const [stockId, setStockId] = useState(props.ownedAsset.stockId);
+  const [stockId, setStockId] = useState(
+    props.ownedAsset.stockId != null
+      ? props.ownedAsset.stockId
+      : props.stockOne.stockId
+  );
   const [stockName, setStockName] = useState(
     props.ownedAsset.stockName != null
       ? props.ownedAsset.stockName
@@ -38,7 +42,7 @@ const ModalSelling = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/assets/holdingCount/${
+        `http://15.165.116.146:8080/assets/holdingCount/${
           JSON.parse(sessionStorage.getItem("logined_user")).userId
         }`
       )

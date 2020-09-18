@@ -6,8 +6,16 @@ import axios from "axios";
 const ModalBuying = (props) => {
   const url = "http://localhost:8080/assets/";
   const [asset, setAsset] = useState([]);
-  const [assetId, setAssetId] = useState(props.ownedAsset.assetId);
-  const [stockId, setStockId] = useState(props.ownedAsset.stockId);
+  const [assetId, setAssetId] = useState(
+    props.ownedAsset.assetId != null
+      ? props.ownedAsset.assetId
+      : props.stockOne.assetId
+  );
+  const [stockId, setStockId] = useState(
+    props.ownedAsset.stockId != null
+      ? props.ownedAsset.stockId
+      : props.stockOne.stockId
+  );
   const [stockName] = useState(
     props.ownedAsset.stockName != null
       ? props.ownedAsset.stockName
@@ -75,7 +83,7 @@ const ModalBuying = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/assets/myAsset/${
+        `http://15.165.116.146:8080/assets/myAsset/${
           JSON.parse(sessionStorage.getItem("logined_user")).userId
         }`
       )
@@ -110,6 +118,7 @@ const ModalBuying = (props) => {
 
   const submitTransaction = (e) => {
     e.preventDefault();
+    console.log(props.stockOne);
     if (props.stockOne.stockName != null) {
       const newTransaction = {
         userId: JSON.parse(sessionStorage.getItem("logined_user")).userId,
@@ -123,7 +132,9 @@ const ModalBuying = (props) => {
         transactionDate: new Date().toLocaleDateString(),
         transactionType: transactionType,
       };
-      console.log(newTransaction.stockName);
+      console.log("newTransaction : ", newTransaction);
+      console.log("stockId : ", stockId);
+      console.log(newTransaction.stockId);
       axios
         .post(
           url +
